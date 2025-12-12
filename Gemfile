@@ -2,6 +2,11 @@ source "https://rubygems.org"
 
 ruby "3.3.8"
 
+group :production do
+  gem 'pg', '1.6.0.rc1'
+end
+
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.6"
 
@@ -9,7 +14,9 @@ gem "rails", "~> 7.1.6"
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", ">= 1.4"
+group :development, :test do
+  gem "sqlite3", ">= 1.4"
+end
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
